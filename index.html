@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Laura Turtiainen 2025</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: lightgray;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      color: black;
+    }
+
+p {
+    color: black;
+}
+
+    .carousel-container {
+      /* Leveys on nyt suhteellinen */
+      width: 90%; 
+      max-width: 350px;
+      height: 380px;
+      border: 2px solid #333;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-inner {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      scroll-behavior: smooth; 
+      overflow-x: scroll; 
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-item {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      flex-shrink: 0;
+      scroll-snap-align: start; 
+    }
+
+    /* Piilotetaan vierityspalkki */
+    .carousel-inner::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel-inner {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+      border-radius: 5px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+      border-radius: 5px;
+    }
+
+    .carousel-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Media query matkapuhelimille */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      .carousel-container {
+        height: 300px; /* Pienempi korkeus pienillä näytöillä */
+      }
+      
+      .carousel-btn {
+        font-size: 18px; /* Pienemmät nuolipainikkeet */
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Portfolio</h1>
+
+  <div class="carousel-container">
+    <div class="carousel-inner">
+      <img src="img/001.jpeg" alt="Kuva 1" class="carousel-item">
+      <img src="img/002.jpeg" alt="Kuva 2" class="carousel-item">
+      <img src="img/003.jpeg" alt="Kuva 3" class="carousel-item">
+      <img src="img/004.jpeg" alt="Kuva 4" class="carousel-item">
+      <img src="img/005.jpeg" alt="Kuva 5" class="carousel-item">
+      <img src="img/006.jpeg" alt="Kuva 6" class="carousel-item">
+      <img src="img/007.jpeg" alt="Kuva 7" class="carousel-item">
+      <img src="img/008.jpeg" alt="Kuva 8" class="carousel-item">
+      <img src="img/009.jpeg" alt="Kuva 9" class="carousel-item">
+      <img src="img/010.jpeg" alt="Kuva 10" class="carousel-item">
+      <img src="img/011.jpeg" alt="Kuva 11" class="carousel-item">
+      <img src="img/012.jpeg" alt="Kuva 12" class="carousel-item">
+      <img src="img/013.jpeg" alt="Kuva 13" class="carousel-item">
+      <img src="img/014.jpeg" alt="Kuva 14" class="carousel-item">
+      <img src="img/015.jpeg" alt="Kuva 15" class="carousel-item">
+      <img src="img/016.jpeg" alt="Kuva 16" class="carousel-item">
+      <img src="img/017.jpeg" alt="Kuva 17" class="carousel-item">
+    </div>
+    
+    <button class="carousel-btn prev" aria-label="Edellinen">&#10094;</button>
+    <button class="carousel-btn next" aria-label="Seuraava">&#10095;</button>
+  </div>
+
+<footer><p>Laura Turtiainen 2025</p></footer>
+
+  <script>
+    const inner = document.querySelector('.carousel-inner');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    // Kun klikataan "Seuraava" -painiketta
+    nextBtn.addEventListener('click', () => {
+      inner.scrollBy({
+        left: inner.offsetWidth,
+        behavior: 'smooth'
+      });
+    });
+
+    // Kun klikataan "Edellinen" -painiketta
+    prevBtn.addEventListener('click', () => {
+      inner.scrollBy({
+        left: -inner.offsetWidth,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>
